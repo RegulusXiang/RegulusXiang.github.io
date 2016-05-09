@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一个bug引发的血案 | 白马灰马 | by G. Xiang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="">
+  <meta name="description" content="前天中午醒来邮箱收到WordPress的推送：
+
+嗨！您位于 http://www.xianggen.info 的站点已被成功升级到WordPress 4.3.4。
+
+“しまった！”我心想。
+输入域名，果不其然看到一行报错：
+
+Fatal Error： Redeclared class WP_Tax_Query at …
+
+类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个bug引发的血案">
+<meta property="og:url" content="http://xianggen.info/2016/05/09/一个bug引发的血案/index.html">
+<meta property="og:site_name" content="白马灰马">
+<meta property="og:description" content="前天中午醒来邮箱收到WordPress的推送：
+
+嗨！您位于 http://www.xianggen.info 的站点已被成功升级到WordPress 4.3.4。
+
+“しまった！”我心想。
+输入域名，果不其然看到一行报错：
+
+Fatal Error： Redeclared class WP_Tax_Query at …
+
+类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人">
+<meta property="og:updated_time" content="2016-05-09T12:58:55.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个bug引发的血案">
+<meta name="twitter:description" content="前天中午醒来邮箱收到WordPress的推送：
+
+嗨！您位于 http://www.xianggen.info 的站点已被成功升级到WordPress 4.3.4。
+
+“しまった！”我心想。
+输入域名，果不其然看到一行报错：
+
+Fatal Error： Redeclared class WP_Tax_Query at …
+
+类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人">
+  
+    <link rel="alternative" href="/atom.xml" title="白马灰马" type="application/atom+xml">
+  
+  <meta name="summary" content="regulus.xiang@outlook.com">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner">
+  <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/poly.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">G. Xiang</h5>
+        <a href="mailto:undefined" title="regulus.xiang@outlook.com" class="mail">regulus.xiang@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav">
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            归档
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            关于
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>白马灰马 &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-circle-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一个bug引发的血案</div>
+        
+        <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">一个bug引发的血案</h1>
+    <h5 class="subtitle">2016-05-09</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-一个bug引发的血案" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col"></div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+          <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo"><span class="post-toc-text">Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二次自豪"><span class="post-toc-text">第二次自豪</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><p>前天中午醒来邮箱收到WordPress的推送：</p>
+<blockquote>
+<p>嗨！您位于 <a href="http://www.xianggen.info" target="_blank" rel="external">http://www.xianggen.info</a> 的站点已被成功升级到WordPress 4.3.4。</p>
+</blockquote>
+<p>“しまった！”我心想。</p>
+<p>输入域名，果不其然看到一行报错：</p>
+<blockquote>
+<p>Fatal Error： Redeclared class WP_Tax_Query at …</p>
+</blockquote>
+<p>类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人站点的后台崩掉了。</p>
+<p>按照故事的正常逻辑，接下来应该是我苦心孤诣debug最终成功经过一日一夜的骚受挠头把网站恢复了。然而不是这样。很多情况下，修轮子的时间成本要比造轮子高不少，所以这次我决定借别人家的图纸再造一个轮子。</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>从去年十月份开始，我就有一种感受，用WordPress的框架搭没什么访问量、数据库规模小的个人博客是在用鸟枪打蚊子。WordPress庞大的代码框架和众多的插件功能难免让人眼花缭乱，对于创作者来说，不停写下去的意义要远远大于选择什么平台。</p>
+<p>更重要的一个问题是，WP框架需要数据库和后台，由此产生很多小型博客本不需要的开发消耗。例如租用主机、搭建数据库系统……我的核心需求是一个界面简单精致、没有复杂后台交互但能确保基本评论留言等功能，且最好支持MarkDown语法的博客平台。</p>
+<p>于是我最终选择了<strong>Hexo</strong>。</p>
+<p>在确定自己的选择之前，我做过很多对比。</p>
+<ul>
+<li><p>Ghost虽然号称是取代WordPress的下一代开源博客，但其仍需要后台数据库支持。过于重量级。</p>
+</li>
+<li><p>JekyII虽然是GitHub Pages的官方静态页面系统，但对汉语支持捉急。</p>
+</li>
+<li><p>Farbox是国人开发的支持MarkDown语法的博客平台，但没有源码进行个性化开发且收费。</p>
+</li>
+<li><p>我甚至一度想到使用才支持域名绑定的网易LOFTER，在我粘贴一篇原先的博文并提示包含敏感词之后，我笑了笑。</p>
+</li>
+</ul>
+<p>Hexo是一个台湾学长开发的基于Node.js的静态页面博客系统，它没有后台、不用数据库。同时，Hexo支持主题引擎，支持MarkDown语法，对中文支持优秀。又因其轻量级属性，可以直接部署在GitHub Pages上，省掉了我日后续租主机服务器的费用。又因为是对静态页面进行渲染，在没有网络的情况下，Hexo也能够通过localhost来预览自己的博客。总之，完美匹配我的需求。</p>
+<p>于是，用时一天，我MD化了从原先数据库导出的全部文章并重新搭建了这个新博客。</p>
+<p>因为使用全新的<em>多说</em>评论系统且舍弃了数据库，原先的留言和插图都没有了。算是一个小遗憾。</p>
+<h2 id="第二次自豪"><a href="#第二次自豪" class="headerlink" title="第二次自豪"></a>第二次自豪</h2><p>WordPress中文版会在由其框架搭建的页面尾部显示“自豪地使用WordPress”。</p>
+<p>然后它就自豪地自动升级，自豪地崩溃了。</p>
+<p>Hexo的项目大小很小，基本都在我的控制之中。这种从建站到内容输出的自底而上的控制感也能让人自得。</p>
+<p>在这个<strong>Power by Hexo</strong>的新博客里，我希望能再再自豪一次。</p>
+<p>&nbsp;</p>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
+    
+  </div>
+  <div class="flex-col waves-block next">
+    
+      <a href="/2016/05/09/幼稚硬汉和复古船长/" title="幼稚硬汉和复古船长" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="一个bug引发的血案" data-title="一个bug引发的血案" data-url="http://xianggen.info/2016/05/09/一个bug引发的血案/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xianggen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-circle-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "一个bug引发的血案",
+    pic: "/img/poly.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://xianggen.info/2016/05/09/一个bug引发的血案/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
