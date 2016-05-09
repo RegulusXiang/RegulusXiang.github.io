@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>REST | 白马灰马 | by G. Xiang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="">
+  <meta name="description" content="毕设导师在看了我过去的项目经历之后问：
+“你听说过，RESTful，吗？”
+“不知道啊，老师。”
+“我看你过去做过网站，然后你又对移动应用开发感兴趣。但是单纯做App没能解决什么技术性的问题。我觉得你可以考虑做一个构建在REST api之上的通用应用模板，帮助提高移动创业开发的效率。”
+对于一个无从下手的新技术概念，还是需要通过问自己一些本体论问题来入手：
+它是谁？它来自哪里？它为什么存在？
+于是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REST">
+<meta property="og:url" content="http://yoursite.com/2016/05/09/Leave out all the REST/index.html">
+<meta property="og:site_name" content="白马灰马">
+<meta property="og:description" content="毕设导师在看了我过去的项目经历之后问：
+“你听说过，RESTful，吗？”
+“不知道啊，老师。”
+“我看你过去做过网站，然后你又对移动应用开发感兴趣。但是单纯做App没能解决什么技术性的问题。我觉得你可以考虑做一个构建在REST api之上的通用应用模板，帮助提高移动创业开发的效率。”
+对于一个无从下手的新技术概念，还是需要通过问自己一些本体论问题来入手：
+它是谁？它来自哪里？它为什么存在？
+于是">
+<meta property="og:updated_time" content="2016-05-09T06:50:39.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="REST">
+<meta name="twitter:description" content="毕设导师在看了我过去的项目经历之后问：
+“你听说过，RESTful，吗？”
+“不知道啊，老师。”
+“我看你过去做过网站，然后你又对移动应用开发感兴趣。但是单纯做App没能解决什么技术性的问题。我觉得你可以考虑做一个构建在REST api之上的通用应用模板，帮助提高移动创业开发的效率。”
+对于一个无从下手的新技术概念，还是需要通过问自己一些本体论问题来入手：
+它是谁？它来自哪里？它为什么存在？
+于是">
+  
+    <link rel="alternative" href="/atom.xml" title="白马灰马" type="application/atom+xml">
+  
+  <meta name="summary" content="regulus.xiang@outlook.com">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner">
+  <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/poly.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Regulus Xiang</h5>
+        <a href="mailto:undefined" title="regulus.xiang@outlook.com" class="mail">regulus.xiang@outlook.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav">
+    
+        <li class="waves-block">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block">
+          <a href="https://github.com/yscoder" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>白马灰马 &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-circle-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">REST</div>
+        
+        <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">REST</h1>
+    <h5 class="subtitle">2016-05-09</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="leave-Leave out all the REST" class="article article-type-leave" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col"></div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+          <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><p>毕设导师在看了我过去的项目经历之后问：</p>
+<p>“你听说过，RESTful，吗？”</p>
+<p>“不知道啊，老师。”</p>
+<p>“我看你过去做过网站，然后你又对移动应用开发感兴趣。但是单纯做App没能解决什么技术性的问题。我觉得你可以考虑做一个构建在REST api之上的通用应用模板，帮助提高移动创业开发的效率。”</p>
+<p>对于一个无从下手的新技术概念，还是需要通过问自己一些本体论问题来入手：</p>
+<p>它是谁？它来自哪里？它为什么存在？</p>
+<p>于是有了这篇科普文。</p>
+<p>&nbsp;</p>
+<p>##<strong>什么是RESTful？</strong></p>
+<p>####REpresentational State Transfer,表现层状态转移。</p>
+<p>所谓REST是定义服务器与客户端之间进行交互的API的一种架构风格。<br>REST API遵循这些接口约束：</p>
+<ol>
+<li><p>资源的识别<br>将分布式超媒体系统中所使用到的全部数据，统一视为资源（Resource），对各种类型的资源，进行基本操作。</p>
+</li>
+<li><p>通过表述对资源执行的操作<br>四种基本操作：POST、GET、PUT、DELETE</p>
+</li>
+<li><p>自描述的消息<br>URL及API具有自描述特性，能直接看出文件层级或类型信息</p>
+</li>
+<li><p>作为应用状态引擎的超媒体</p>
+</li>
+</ol>
+<p>###<strong><em>最佳实践：</em></strong></p>
+<ul>
+<li><p>URL root：<br>API版本格式<br>example.org/api/v1<br>或者 api.example.com/v1</p>
+</li>
+<li><p>URI使用名词复数形式，例如：</p>
+</li>
+</ul>
+<blockquote>
+<p>GET /products : will return the list of all products</p>
+<p>POST /products : will add a product to the collection</p>
+<p>GET /products/4 : will retrieve product #4</p>
+<p>PATCH/PUT /products/4 : will update product #4</p>
+</blockquote>
+<ul>
+<li><p>保证head和get方法的安全性，不改变资源状态</p>
+</li>
+<li><p>资源地址推荐嵌套结构，例如：</p>
+</li>
+</ul>
+<blockquote>
+<p>GET /friends/29109231/profile （获取id为29109231的友人的说明信息）</p>
+</blockquote>
+<ul>
+<li><p>对返回结果大小进行限制</p>
+</li>
+<li><p>传递正确的HTTP Satus Code</p>
+</li>
+<li><p>返回结果明白易懂</p>
+</li>
+</ul>
+<p>##<strong>为什么要使用RESTful？</strong><br>三个架构属性（来自Roy的博士论文原文）：</p>
+<p>###1. 可见性</p>
+<p>监视系统不必为了确定一个请求的全部性质而去查看该请求之外的多个请求</p>
+<p>###2. 可伸缩性</p>
+<p>不必在多个请求之间保存状态，从而允许服务器组件迅速释放资源，并进一步简化其实现。因为服务器不必跨越多个请求管理资源的利用</p>
+<p>###3. 可靠性</p>
+<p>减轻从局部故障中恢复的任务量</p>
+<p>###<em><strong>基于操作的架构风格为什么不好：</strong></em><br>基于操作的API设计由于操作之间的关联性，会使得系统复杂化<br>URL设计缺乏一致性会使其不具备自描述能力<br>基于操作设计的副作用不适合用于设计缓存机制</p>
+<p>###<em><strong>所以基于资源的设计风格好好好：</strong></em></p>
+<ol>
+<li><p>资源之间相互独立，耦合性低（无状态）</p>
+</li>
+<li><p>对资源操作类型有限，设计URL一致性高</p>
+</li>
+<li><p>对资源进行读操作很方便设计缓存</p>
+</li>
+</ol>
+<p>##<strong>RESTful API如何实现？</strong></p>
+<p>优秀的设计范例有：<br>GitHub、FB、豆瓣</p>
+<p>##<strong>RESTful API如何使用？</strong></p>
+<p>之前我理解的是，既然有很多网站的api都是基于REST架构的，那么就可以有一个统一的方法来获取各个网站的资源，从而在移动端利用一个设计好的“万金油模板”快速生成一个开放了REST api的网站应用。<br>虽然大致明白了REST是什么，解决了什么问题。但是我在仔细看了几个符合RESTful API的网站之后，我对原先的理解产生了动摇。即使它们的api都是REST风格的但是——<br>豆瓣获取的资源是图书、电影、FM、相册信息，脸书获取的资源是好友关系、新鲜事、照片，感觉在做应用的时候，完全不能放进同一个模板啊。完全に驴唇不对马嘴啊。而且就算强行把豆瓣的广播、脸书的新鲜事放到移动应用的同一个View里面，向两个网站发送的请求URL和解析返回值的时候也是完全不一样的。<br>难道会出现这样的说明：<br>“该通用应用模板，支持豆瓣、微博、GitHub的REST架构api。更多的网站支持将在下一个版本迭代中添加。”<br>导师，叫我毕业设计做这个，你是不是想让我多陪你一年。</p>
+<p>所以现在的新想法是，自己构架一个网站（或者重构一个不符合REST风格的老网站，工作量偏大？），并且后端实现和api符合REST风格。然后，在移动端可以利用api快速制作一个移动客户端。</p>
+<p>毕业设计的开题报告马上就要来了，决定做什么之后硬着头皮也得上了。可是为什么冥冥间，我仿佛听到某公园乐队的劝阻：</p>
+<p>##<blockquote>Leave out all the REST!</blockquote></p>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
+    
+      <a href="/2016/05/09/不协调的和单向度的/" title="不协调的和单向度的" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block next">
+    
+      <a href="/2016/05/09/也来自豪一次/" title="也来自豪一次" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Leave out all the REST" data-title="REST" data-url="http://yoursite.com/2016/05/09/Leave out all the REST/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-circle-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "REST",
+    pic: "/img/poly.jpg",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "http://yoursite.com/2016/05/09/Leave out all the REST/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
