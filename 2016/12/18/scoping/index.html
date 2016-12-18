@@ -25,7 +25,7 @@ variable name -&amp;gt; memory location -&amp;gt; value
 type name -&amp;gt; type
 Environment
 set of bindings that hol">
-<meta property="og:updated_time" content="2016-12-18T21:17:54.241Z">
+<meta property="og:updated_time" content="2016-12-18T21:18:55.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scoping">
 <meta name="twitter:description" content="Programming Languages Class 3Binding
@@ -217,7 +217,7 @@ set of bindings that hol">
 <p>A reference to a variable is resolved according to the innermost surrounding Scope</p>
 </blockquote>
 <p>Quiz:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure f()</span><br><span class="line">    x: Integer := 5;</span><br><span class="line">    procedure g()</span><br><span class="line">        x: Integer := 17;</span><br><span class="line">        begin</span><br><span class="line">            h();</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    procedure h()</span><br><span class="line">    begin</span><br><span class="line">        print(x);</span><br><span class="line">    end</span><br><span class="line">begin</span><br><span class="line">    g();</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">f</span><span class="params">()</span></span><br><span class="line">    <span class="title">x</span>:</span> Integer := <span class="number">5</span>;</span><br><span class="line">    <span class="function"><span class="keyword">procedure</span> <span class="title">g</span><span class="params">()</span></span><br><span class="line">        <span class="title">x</span>:</span> Integer := <span class="number">17</span>;</span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            h();</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">procedure</span> <span class="title">h</span><span class="params">()</span></span><br><span class="line">    <span class="title">begin</span></span><br><span class="line">        <span class="title">print</span><span class="params">(x)</span>;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    g();</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Almost all modern languages will print 5. </p>
 </blockquote>
@@ -232,7 +232,7 @@ set of bindings that hol">
 <blockquote>
 <p>print 25.</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s: stack</span><br><span class="line">procedure push(x :Integer)</span><br><span class="line">begin</span><br><span class="line">    pushes x ono s</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function pop()  //return Integer</span><br><span class="line">begin</span><br><span class="line">    pops the top off s</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s: stack</span><br><span class="line"><span class="function"><span class="keyword">procedure</span> <span class="title">push</span><span class="params">(x :Integer)</span></span><br><span class="line"><span class="title">begin</span></span><br><span class="line">    <span class="title">pushes</span> <span class="title">x</span> <span class="title">ono</span> <span class="title">s</span></span><br><span class="line"><span class="title">end</span></span><br><span class="line"></span><br><span class="line"><span class="title">function</span> <span class="title">pop</span><span class="params">()</span>  <span class="comment">//return Integer</span></span><br><span class="line"><span class="title">begin</span></span><br><span class="line">    <span class="title">pops</span> <span class="title">the</span> <span class="title">top</span> <span class="title">off</span> <span class="title">s</span></span><br><span class="line"><span class="title">end</span></span></span><br></pre></td></tr></table></figure>
 <h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><blockquote>
 <p>a portion of code with an interface that restricts accross to the code from the rest of the program.</p>
 </blockquote>
@@ -252,6 +252,11 @@ set of bindings that hol">
             
 <nav class="post-nav flex-row">
   <div class="flex-col waves-block prev">
+    
+      <a href="/2016/12/18/Ada/" title="Ada &amp; Parameter Passing" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
     
   </div>
   <div class="flex-col waves-block next">
