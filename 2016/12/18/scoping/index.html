@@ -3,19 +3,38 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>白马灰马 | by G. Xiang</title>
+  <title>Scoping | 白马灰马 | by G. Xiang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="undefined">
-  <meta name="description" content="regulus.xiang@outlook.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="白马灰马">
-<meta property="og:url" content="http://xianggen.info/index.html">
+  <meta name="keywords" content="Programming Languages">
+  <meta name="description" content="Programming Languages Class 3Binding
+association between a name and what the name represents.
+
+variable name -&amp;gt; memory location -&amp;gt; value
+type name -&amp;gt; type
+Environment
+set of bindings that hol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scoping">
+<meta property="og:url" content="http://xianggen.info/2016/12/18/scoping/index.html">
 <meta property="og:site_name" content="白马灰马">
-<meta property="og:description" content="regulus.xiang@outlook.com">
+<meta property="og:description" content="Programming Languages Class 3Binding
+association between a name and what the name represents.
+
+variable name -&amp;gt; memory location -&amp;gt; value
+type name -&amp;gt; type
+Environment
+set of bindings that hol">
+<meta property="og:updated_time" content="2016-12-18T21:15:54.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="白马灰马">
-<meta name="twitter:description" content="regulus.xiang@outlook.com">
+<meta name="twitter:title" content="Scoping">
+<meta name="twitter:description" content="Programming Languages Class 3Binding
+association between a name and what the name represents.
+
+variable name -&amp;gt; memory location -&amp;gt; value
+type name -&amp;gt; type
+Environment
+set of bindings that hol">
   
     <link rel="alternative" href="/atom.xml" title="白马灰马" type="application/atom+xml">
   
@@ -28,7 +47,7 @@
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-  <nav id="menu"  >
+  <nav id="menu" class="hide" >
    <div class="inner">
   <a href="javascript:;" class="header-icon waves-circle-light" id="menu-off">
       <i class="icon icon-lg icon-close"></i>
@@ -44,7 +63,7 @@
   </div>
   <ul class="nav">
     
-        <li class="waves-block active">
+        <li class="waves-block">
           <a href="/"  >
             <i class="icon icon-lg icon-home"></i>
             主页
@@ -84,7 +103,7 @@
         <a href="javascript:;" class="header-icon waves-circle-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">白马灰马</div>
+        <div class="flex-col header-title ellipsis">Scoping</div>
         
         <a href="javascript:;" class="header-icon waves-circle-light" id="menu-share">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -94,40 +113,73 @@
 </header>
 <header class="content-header">
   <div class="container">
-    <h1 class="author">白马灰马</h1>
-    <h5 class="subtitle">by G. Xiang</h5>
+    <h1 class="author">Scoping</h1>
+    <h5 class="subtitle">2016-12-18</h5>
   </div>
 </header>
 
     <div class="container body-wrap">
       
-  <ul class="post-list">
-  
-    <li class="post-list-item">
   <article id="post-scoping" class="article article-type-post" itemprop="blogPost">
     
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/12/18/scoping/">Scoping</a>
-    </h3>
-  
-
-
-
       <div class="post-meat flex-row">
         <div class="flex-col">
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming-Languages/">Programming Languages</a></li></ul>
 </div>
-        <time datetime="2016-12-18T21:15:12.000Z" itemprop="datePublished" class="post-tiem">
-  2016-12-18
-</time>
       </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <h4 id="Programming-Languages-Class-3"><a href="#Programming-Languages-Class-3" class="headerlink" title="Programming Languages Class 3"></a>Programming Languages Class 3</h4><h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><blockquote>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+          <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Programming-Languages-Class-3"><span class="post-toc-text">Programming Languages Class 3</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Binding"><span class="post-toc-text">Binding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Environment"><span class="post-toc-text">Environment</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Scope"><span class="post-toc-text">Scope</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Block"><span class="post-toc-text">Block</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Block-Structure-Languages"><span class="post-toc-text">Block Structure Languages</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Static-Scoping"><span class="post-toc-text">Static Scoping</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Dynamic-Scoping"><span class="post-toc-text">Dynamic Scoping</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Module"><span class="post-toc-text">Module</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ada"><span class="post-toc-text">Ada</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Thread"><span class="post-toc-text">Thread</span></a>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="Programming-Languages-Class-3"><a href="#Programming-Languages-Class-3" class="headerlink" title="Programming Languages Class 3"></a>Programming Languages Class 3</h4><h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><blockquote>
 <p>association between a name and what the name represents.</p>
 </blockquote>
 <p>variable name -&gt; memory location -&gt; value</p>
@@ -181,242 +233,59 @@
 <p>a sequence of operations or events</p>
 </blockquote>
 <p>2 threads are executed concurrently if no assumptions about the relative order of events between the threads can be made.</p>
-
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/12/18/scoping/" class="post-more waves-button-light">MORE</a>
-      </div>
-    
-
-  </article>
-
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="post-RE" class="article article-type-post" itemprop="blogPost">
-    
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/12/18/RE/">Regular Expression &amp; Context Free Grammar</a>
-    </h3>
-  
-
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming-Languages/">Programming Languages</a></li></ul>
 </div>
-        <time datetime="2016-12-18T21:09:09.000Z" itemprop="datePublished" class="post-tiem">
-  2016-12-18
-</time>
-      </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <h4 id="Programming-Languages-2-2016-9-14"><a href="#Programming-Languages-2-2016-9-14" class="headerlink" title="Programming Languages 2, 2016/9/14"></a>Programming Languages 2, 2016/9/14</h4><h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><ul>
-<li>alphabet set of characters</li>
-<li>string sequence of characters taken from an alphabet</li>
-</ul>
-<h2 id="Regular-Expression"><a href="#Regular-Expression" class="headerlink" title="Regular Expression"></a>Regular Expression</h2><p>Used to define the syntex of words in a PL</p>
-<p>Grammars defined using an alphabet</p>
-<blockquote>
-<p>|, *, (), concatenation</p>
-</blockquote>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/12/18/RE/" class="post-more waves-button-light">MORE</a>
-      </div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block prev">
     
-
-  </article>
-
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="walk-Meanlingless" class="article article-type-walk" itemprop="blogPost">
+  </div>
+  <div class="flex-col waves-block next">
     
-      
+      <a href="/2016/12/18/RE/" title="Regular Expression &amp; Context Free Grammar" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
 
 
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/12/Meanlingless/">Walk Through the Meanlingless</a>
-    </h3>
-  
 
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/影評/">影評</a></li></ul>
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="scoping" data-title="Scoping" data-url="http://xianggen.info/2016/12/18/scoping/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"xianggen"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
 </div>
-        <time datetime="2016-11-12T05:29:53.000Z" itemprop="datePublished" class="post-tiem">
-  2016-11-12
-</time>
+
+
+
+
+
+
+        </div>
+
       </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <p>和好友才看完Billy Lynn’s Long Halftime Walk。</p>
-<p>來紐約之後一個人看的第一部電影是李安的《飲食男女》，由此開始喜歡做菜一發不可收。個人體驗上，他執導的片子匠氣重、情感表達方式細膩、强調細節對人物形象的構建作用。《斷背山》裏Heath Ledger和愛人分別后極度痛苦地乾嘔，《色戒》裏易先生高潮時不願直視、頭錯開抱緊王佳芝后的顫慄，還有《推手》中郎雄和陳太太在China Town“有事嗎”“沒事沒事”的夕陽紅式寒暄，都是我觀影體驗裏過目難忘的場景橋段。不過從少年PI開始，李安更多把力氣放在技術性嘗試上，似乎有意無意地讓原先這些關乎“匠氣”的個人標簽逐漸剝落。好在這一次的技術試驗沒有分散我的注意，總的説來，我喜歡這部電影。</p>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/11/12/Meanlingless/" class="post-more waves-button-light">MORE</a>
-      </div>
+
     
 
   </article>
 
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="post-Met看画指南" class="article article-type-post" itemprop="blogPost">
-    
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/09/01/Met看画指南/">MET名画：预览、简介及坐标</a>
-    </h3>
-  
-
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/艺术/">艺术</a></li></ul>
-</div>
-        <time datetime="2016-09-02T01:46:55.000Z" itemprop="datePublished" class="post-tiem">
-  2016-09-01
-</time>
-      </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <p><a href="http://maps.metmuseum.org/">Official Map</a></p>
-<h2 id="Salvador-Dali-The-Accommodations-of-Desire"><a href="#Salvador-Dali-The-Accommodations-of-Desire" class="headerlink" title="Salvador Dali: The Accommodations of Desire"></a>Salvador Dali: The Accommodations of Desire</h2><p><a href="http://www.metmuseum.org/art/collection/search/490036">Offical Introduction</a></p>
-<p><img src="http://images.metmuseum.org/CRDImages/ma/web-large/ma1999.363.16.jpg" alt=""></p>
-<blockquote>
-<p>The Spanish-born artist Salvador Dalí was officially allied with Surrealism from 1929 to 1941, and even afterward his work continued to reflect the influence of Surrealist thought and methodology. His flamboyance, flair for drama and self-promotion, and hyperactive imagination reinvigorated the movement and its public popularity. Dalí, who was given to hallucinations and paranoiac visions, cultivated these outrageous subjects for his paintings, rendering them so meticulously that they were unsettling in their clinical matter-of-factness. Such pictures exemplified the Surrealist preoccupation with dreams and the unconscious.</p>
-<p>Painted in the summer of 1929, “The Accommodations of Desire” is a small gem that deals with Dalí’s sexual anxieties over a love affair with an older, married woman. The woman, Gala, then the wife of the Surrealist poet Paul Éluard, became Dalí’s life-long muse and mate. In this picture, which Dalí painted after taking a walk alone with Gala, he included seven enlarged pebbles on which he envisioned what lay ahead for him: “terrorizing” lions’ heads (not so “accommodating” to his “desires” as the title of the painting facetiously suggests), as well as a toupee and a colony of ants (a symbol of decay). Also depicted are various vessels (one in the shape of a woman’s head) and three figures embracing on a platform. Dalí did not paint the lion heads but, rather, cut them out from what must have been an illustrated children’s book, slyly matching the latter’s detailed style with his own. These collaged elements are virtually indistinguishable from the super-saturated color and painstaking realism of the rest of the composition, startling the viewer into questioning the existence of the phenomena recorded and of the representation as a whole.</p>
-</blockquote>
-<h3 id="On-view-at-The-Met-Fifth-Avenue-in-Gallery-907-1st-floor"><a href="#On-view-at-The-Met-Fifth-Avenue-in-Gallery-907-1st-floor" class="headerlink" title="On view at The Met Fifth Avenue in Gallery 907, 1st floor"></a>On view at The Met Fifth Avenue in Gallery 907, 1st floor</h3>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/09/01/Met看画指南/" class="post-more waves-button-light">MORE</a>
-      </div>
-    
-
-  </article>
-
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="post-万段" class="article article-type-post" itemprop="blogPost">
-    
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/08/07/万段/">万段</a>
-    </h3>
-  
-
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小说/">小说</a></li></ul>
-</div>
-        <time datetime="2016-08-07T07:10:52.000Z" itemprop="datePublished" class="post-tiem">
-  2016-08-07
-</time>
-      </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <blockquote>
-<p>1996年1月10日，星期三，一位刚入学不久的名叫刁爱青的南京大学女生，在鼓楼校区附近的青岛路失踪，9天之后的1月19日，她被分尸的遗骸在南京闹市区的多处被发现，这便是著名的南大“1.19”碎尸案。</p>
-<p>据报道，被害人尸体被分解为两千余片，分多个包裹遗弃在南京市中心不同位置。同时，被害人头部及内脏皆遭到过高温高压烹煮。可见犯罪人心理素质之强大、作案手段之残忍。而后，在受害人室友及家属的密切配合下，警方方才确认被害者的身份。</p>
-<p>这本是一起普通的凶杀案，但是因为案发地是繁华的国内重点城市市中心，受害人是特别容易引起话题的女大学生，行凶的手段是特别吸引眼球的碎尸，加之当时警方努力排查多月未果，这起案件始终是猎奇者们茶余饭后的谈资。</p>
-</blockquote>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/08/07/万段/" class="post-more waves-button-light">MORE</a>
-      </div>
-    
-
-  </article>
-
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="post-一个bug引发的血案" class="article article-type-post" itemprop="blogPost">
-    
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/05/09/一个bug引发的血案/">一个bug引发的血案</a>
-    </h3>
-  
-
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
-</div>
-        <time datetime="2016-05-10T00:04:23.000Z" itemprop="datePublished" class="post-tiem">
-  2016-05-09
-</time>
-      </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <p>前天中午醒来邮箱收到WordPress的推送：</p>
-<blockquote>
-<p>嗨！您位于 <a href="http://www.xianggen.info">http://www.xianggen.info</a> 的站点已被成功升级到WordPress 4.3.4。</p>
-</blockquote>
-<p>“しまった！”我心想。</p>
-<p>输入域名，果不其然看到一行报错：</p>
-<blockquote>
-<p>Fatal Error： Redeclared class WP_Tax_Query at …</p>
-</blockquote>
-<p>类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人站点的后台崩掉了。</p>
-<p>按照故事的正常逻辑，接下来应该是我苦心孤诣debug最终成功经过一日一夜的骚受挠头把网站恢复了。然而不是这样。很多情况下，修轮子的时间成本要比造轮子高不少，所以这次我决定借别人家的图纸再造一个轮子。</p>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/05/09/一个bug引发的血案/" class="post-more waves-button-light">MORE</a>
-      </div>
-    
-
-  </article>
-
-
-</li>
-  
-  </ul>
-  
-    <nav id="page-nav">
-      <div class="inner">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-      </div>
-    </nav>
-  
 
 
     </div>
@@ -426,10 +295,10 @@
 
 <script>
 var BLOG_SHARE = {
-    title: "白马灰马",
+    title: "Scoping",
     pic: "/img/poly.jpg",
     summary: document.getElementsByName('summary')[0].content,
-    url: "http://xianggen.info/index.html"
+    url: "http://xianggen.info/2016/12/18/scoping/index.html"
 };
 </script>
 <div class="global-share" id="global-share">
