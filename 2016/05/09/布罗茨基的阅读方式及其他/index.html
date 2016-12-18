@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>布罗茨基的阅读方式及其他 | 白马灰马 | by G. Xiang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -43,11 +43,11 @@
 &lt;p&gt;高质高密的文字浓缩比喻、情感和思辨，让我在阅读《悲伤与理智》时往往深陷悲伤然后失去理智。这自然是冗談，实际情况是阅读过程通常每半个小时就要停歇一次:我得闭上眼、关掉Kindle，仰起头倒在椅背上，平息刚才书中话语声音在我心内空谷中所激起的交错回响。就像看着Gandalf the Gray和Balrog of Moria交战，我看见作家和文学你进我退地周旋，然后发现自己只是个手无寸铁的人族士兵，无力感趁机蔓延到了末梢神经。&lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link href="/favicon.ico" rel="icon" type="image/x-ico">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body>
-  <div id="loading" class="active"></div>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
   <nav id="menu" class="hide" >
    <div class="inner">
@@ -338,6 +338,46 @@ var BLOG_SHARE = {
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
 <script src="/js/main.js"></script>
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
