@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://xianggen.info/2016/12/18/Ada/index.html">
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="Programming Languages Class 3 Notestask12345678910111213141516171819task t1 is    entry start(x:inteer);end t1;task body t1 isbegin       put(&quot;Hello&quot;);New_Line;    accept start(x: Integer) do        P">
-<meta property="og:updated_time" content="2016-12-18T21:24:12.489Z">
+<meta property="og:updated_time" content="2016-12-21T03:46:59.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ada & Parameter Passing">
 <meta name="twitter:description" content="Programming Languages Class 3 Notestask12345678910111213141516171819task t1 is    entry start(x:inteer);end t1;task body t1 isbegin       put(&quot;Hello&quot;);New_Line;    accept start(x: Integer) do        P">
@@ -193,7 +193,7 @@
 </ol>
 <ul>
 <li>The formal parameters is a reference to the memory location of the corresponding actual parameters.</li>
-<li>Implemented by passing address (poingter) of the actual parameters into the formal parameters.</li>
+<li>Implemented by passing address (pointer) of the actual parameters into the formal parameters.</li>
 <li>Requeres an automatic de-reference every time the formal parameters is accessed.</li>
 </ul>
 <ol>
@@ -203,8 +203,8 @@
 <blockquote>
 <p>36</p>
 </blockquote>
-<h1 id="Parameter-Passing-1"><a href="#Parameter-Passing-1" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h1><h4 id="Programming-Languages-Class-5"><a href="#Programming-Languages-Class-5" class="headerlink" title="Programming Languages Class 5"></a>Programming Languages Class 5</h4><h2 id="Pass-by-value-result-copy-in-copy-out"><a href="#Pass-by-value-result-copy-in-copy-out" class="headerlink" title="Pass by value result (copy-in/copy-out)"></a>Pass by value result (copy-in/copy-out)</h2><p>when the procedire is called, the values of the actual parameters are copied to the formal parameters.</p>
-<p>Whne the procedure returns, the value of the formal parameters are copied to the actual parameters.</p>
+<h1 id="Parameter-Passing-1"><a href="#Parameter-Passing-1" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h1><h4 id="Programming-Languages-Class-5"><a href="#Programming-Languages-Class-5" class="headerlink" title="Programming Languages Class 5"></a>Programming Languages Class 5</h4><h2 id="Pass-by-value-result-copy-in-copy-out"><a href="#Pass-by-value-result-copy-in-copy-out" class="headerlink" title="Pass by value result (copy-in/copy-out)"></a>Pass by value result (copy-in/copy-out)</h2><p>When the procedure is called, the values of the actual parameters are copied to the formal parameters.</p>
+<p>When the procedure returns, the value of the formal parameters are copied to the actual parameters.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    x = x + <span class="number">2</span>;</span><br><span class="line">    y = y + <span class="number">2</span>;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">12</span>;</span><br><span class="line">f(a,b);</span><br><span class="line">print(a);</span><br><span class="line">print(b);  <span class="comment">//actual parameters are changed</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    a = a + <span class="number">1</span>;</span><br><span class="line">    x = x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">g(a);</span><br><span class="line">print(a);</span><br></pre></td></tr></table></figure>
 <blockquote>
