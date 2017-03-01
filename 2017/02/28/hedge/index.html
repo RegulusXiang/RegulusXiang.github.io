@@ -13,14 +13,14 @@
 <meta property="og:url" content="http://xianggen.info/2017/02/28/hedge/index.html">
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
-<meta property="og:updated_time" content="2017-03-01T03:21:20.967Z">
+<meta property="og:updated_time" content="2017-03-01T03:22:32.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What we talk about when we talk about Hedging">
 <meta name="twitter:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
   
     <link rel="alternative" href="/atom.xml" title="白马灰马" type="application/atom+xml">
   
-  <meta name="summary" content="regulus.xiang@outlook.com">
+  <meta name="summary" content="&lt;p&gt;After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic trading platform I’m about to build, it’s supposed that I get a rough idea about the mechanisms of a hedge fund. So here are some of my memos. &lt;/p&gt;">
   <link rel="shortcut icon" href="/favicon.ico">
   <link href="/favicon.ico" rel="icon" type="image/x-ico">
   <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -162,6 +162,7 @@
         <div class="post-main">
 
             <div class="post-content" id="post-content" itemprop="postContent"><p>After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic trading platform I’m about to build, it’s supposed that I get a rough idea about the mechanisms of a hedge fund. So here are some of my memos. </p>
+<a id="more"></a>
 <h2 id="Short-amp-Long"><a href="#Short-amp-Long" class="headerlink" title="Short &amp; Long"></a>Short &amp; Long</h2><p>Suppose that you are a very clever guy, how can you make a profit after knowing the stock of Apple(AAPL) is going to fall, say 5%, in the next 3 days? That’s about short.</p>
 <p>The solution is easy. Suppose the price of AAPL is 100 dollars today and \$90 three days after. As a hedge fund, you can “borrow” 10 AAPL stocks today, which costs you \$1000. Then, you sell them, which results in a temporary 1000 dollars’ profit. After 3 days, you buy 10 AAPL stocks from the market using 900 dollars. And “return” this 10 stocks to whom you borrowed the stocks. All in all, you make a profit of \$100. </p>
 <p>That’s called a “SHORT”. Using common sense, you can understand what is LONG, which is exact the opposite of SHORT.</p>
