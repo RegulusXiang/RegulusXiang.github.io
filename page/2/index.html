@@ -104,6 +104,43 @@
   <ul class="post-list">
   
     <li class="post-list-item">
+  <article id="post-Ada" class="article article-type-post" itemprop="blogPost">
+    
+      
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/12/18/Ada/">Ada &amp; Parameter Passing</a>
+    </h3>
+  
+
+
+
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Programming-Languages/">Programming Languages</a></li></ul>
+</div>
+        <time datetime="2016-12-18T21:20:21.000Z" itemprop="datePublished" class="post-tiem">
+  2016-12-18
+</time>
+      </div>
+      <div class="post-content" id="post-content" itemprop="postContent" >
+        
+          <h4 id="Programming-Languages-Class-3-Notes"><a href="#Programming-Languages-Class-3-Notes" class="headerlink" title="Programming Languages Class 3 Notes"></a>Programming Languages Class 3 Notes</h4><h2 id="task"><a href="#task" class="headerlink" title="task"></a>task</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">task t1 is</span><br><span class="line">    entry start(x:inteer);</span><br><span class="line">end t1;</span><br><span class="line"></span><br><span class="line">task body t1 is</span><br><span class="line">begin   </span><br><span class="line">    put("Hello");New_Line;</span><br><span class="line">    accept start(x: Integer) do</span><br><span class="line">        Put(x);New_Line;</span><br><span class="line">    end start;</span><br><span class="line">    Put("Bye");New_Line;</span><br><span class="line">end t1;</span><br><span class="line"></span><br><span class="line">task body t2 is</span><br><span class="line">begin</span><br><span class="line">    Put("Bongor");New_Line;</span><br><span class="line">    t1.start(6);</span><br><span class="line">    Put("Au revoir");New_Line;</span><br><span class="line">end t2;</span><br></pre></td></tr></table></figure>
+        
+      </div>
+      <div class="post-footer clearfix">
+        <a href="/2016/12/18/Ada/" class="post-more waves-button-light">MORE</a>
+      </div>
+    
+
+  </article>
+
+
+</li>
+  
+    <li class="post-list-item">
   <article id="post-scoping" class="article article-type-post" itemprop="blogPost">
     
       
@@ -313,53 +350,6 @@
       </div>
       <div class="post-footer clearfix">
         <a href="/2016/08/07/万段/" class="post-more waves-button-light">MORE</a>
-      </div>
-    
-
-  </article>
-
-
-</li>
-  
-    <li class="post-list-item">
-  <article id="post-一个bug引发的血案" class="article article-type-post" itemprop="blogPost">
-    
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/05/09/一个bug引发的血案/">一个bug引发的血案</a>
-    </h3>
-  
-
-
-
-      <div class="post-meat flex-row">
-        <div class="flex-col">
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
-</div>
-        <time datetime="2016-05-10T00:04:23.000Z" itemprop="datePublished" class="post-tiem">
-  2016-05-09
-</time>
-      </div>
-      <div class="post-content" id="post-content" itemprop="postContent" >
-        
-          <p>前天中午醒来邮箱收到WordPress的推送：</p>
-<blockquote>
-<p>嗨！您位于 <a href="http://www.xianggen.info">http://www.xianggen.info</a> 的站点已被成功升级到WordPress 4.3.4。</p>
-</blockquote>
-<p>“しまった！”我心想。</p>
-<p>输入域名，果不其然看到一行报错：</p>
-<blockquote>
-<p>Fatal Error： Redeclared class WP_Tax_Query at …</p>
-</blockquote>
-<p>类名重定义，而且是一份庞大且我几乎没仔细研究过的代码。结局很明显：我的个人站点的后台崩掉了。</p>
-<p>按照故事的正常逻辑，接下来应该是我苦心孤诣debug最终成功经过一日一夜的骚受挠头把网站恢复了。然而不是这样。很多情况下，修轮子的时间成本要比造轮子高不少，所以这次我决定借别人家的图纸再造一个轮子。</p>
-        
-      </div>
-      <div class="post-footer clearfix">
-        <a href="/2016/05/09/一个bug引发的血案/" class="post-more waves-button-light">MORE</a>
       </div>
     
 
