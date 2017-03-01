@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://xianggen.info/2017/02/28/hedge/index.html">
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
-<meta property="og:updated_time" content="2017-03-01T03:22:32.142Z">
+<meta property="og:updated_time" content="2017-03-01T03:27:43.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What we talk about when we talk about Hedging">
 <meta name="twitter:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
@@ -182,7 +182,7 @@
 <p>For $\alpha$, it indicates the rise and fall of this particular stock. If $\alpha &lt; 0$, the price of stock is very likely to decrease, in this context, we should apply our “short” policy; otherwise, we buy “long”.</p>
 <p>After believing this, we are going to use SPY to fulfill the Risk Hedging. First , we suppose</p>
 <p>$$P(AAPL) = 2P(SPY)$$</p>
-<p>There is no $\alpha$ here, so let’s just buy in 100 Apple stock and in the mean time, sell $2<em>100$ Spy stock. If the price of SPY is x per stock, then the price of AAPL is 2x. Because of $$(- 100 </em> 2x) + (2<em>100 </em> x) = 0$$, we will neither win or lose. This is how hedging avoids the risk. So how can we make profits?</p>
+<p>There is no $\alpha$ here, so let’s just buy in 100 Apple stock and in the mean time, sell $2<em>100$ Spy stock. If the price of SPY is x per stock, then the price of AAPL is 2x. Because of $(- 100 </em> 2x) + (2<em>100 </em> x) = 0$, we will neither win or lose. This is how hedging avoids the risk. So how can we make profits?</p>
 <p>Then we suppose $$P(AAPL) = 2(SPY) - 5\%$$. We can see that $-5\% &lt; 0$, which tells us to “short” (sell) AAPL.  </p>
 <table>
 <thead>
@@ -278,7 +278,7 @@
 </tr>
 </tbody>
 </table>
-<p>In total, the amount of SPY we are going to buy/sell is $$1.5x - 2x - 3x - 1.4x = -4.9x$$. Because we have to buy \$x of each these 4 stocks. Our 1000 dollars this morning will be separated into $4.9 + 4 = 8.9$ parts. Therefore, we buy/sell $1/8.9 <em> 1000$ dollars of AAPL/TSLA/MSFT/GM. And we sell $4.9/8.9 </em> 1000$ dollars of SPY. </p>
+<p>In total, the amount of SPY we are going to buy/sell is $$1.5x - 2x - 3x - 1.4x = -4.9x$$. Because we have to buy \$x of each these 4 stocks. Our 1000 dollars this morning will be separated into $4.9 + 4 = 8.9$ parts. Therefore, we buy or sell $1/8.9 <em> 1000$ dollars of AAPL/TSLA/MSFT/GM. And we sell $4.9/8.9 </em> 1000$ dollars of SPY. </p>
 <p>Using TWS (Trade Workstation) API, I can find out the VWAP or mkt price of each stock, then the trading platform I build will calculate the number of each stock to be operated and do the correspond buy/sell jobs. </p>
 </div>
 
