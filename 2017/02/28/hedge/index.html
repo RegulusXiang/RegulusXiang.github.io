@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://xianggen.info/2017/02/28/hedge/index.html">
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
-<meta property="og:updated_time" content="2017-03-01T03:58:05.373Z">
+<meta property="og:updated_time" content="2017-03-05T23:15:37.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What we talk about when we talk about Hedging">
 <meta name="twitter:description" content="After a 4-hour meeting with Joel, I finally understood the basic ideas about how the so called hedging works. Although I’m not going to do a data scientist’s work, however, in review of the automatic">
@@ -154,7 +154,7 @@
 
           
           <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Short-amp-Long"><span class="post-toc-text">Short & Long</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SPY-amp-Risk-Hedging"><span class="post-toc-text">SPY & Risk Hedging</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#My-Morning-Jobs"><span class="post-toc-text">My Morning Jobs</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Short-amp-Long"><span class="post-toc-text">Short & Long</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SPY-amp-Risk-Hedging"><span class="post-toc-text">SPY & Risk Hedging</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#My-Morning-Jobs"><span class="post-toc-text">My Morning Jobs</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Portfolio-rebalance-amp-3-day-trading"><span class="post-toc-text">Portfolio  rebalance & 3-day  trading</span></a></li></ol>
           </nav>
           
         </aside>
@@ -205,7 +205,7 @@
 </tr>
 </tbody>
 </table>
-<p>This is a use case when we know $\alpha​$. The amount of apple stock we sell is 100. As a hedging operation, we buy in (100*$\beta​$)SPY stocks. In this case, the profit we make is </p>
+<p>This is a use case when we know $\alpha$. The amount of apple stock we sell is 100. As a hedging operation, we buy in (100*$\beta$)SPY stocks. In this case, the profit we make is </p>
 <p>$$-100<em>(\beta </em> x + \alpha) + 100 <em> \beta </em> x = -100 \alpha$$</p>
 <p>From the cases above, we are able to have a general idea about how we use SPY in risk hedging.</p>
 <h2 id="My-Morning-Jobs"><a href="#My-Morning-Jobs" class="headerlink" title="My Morning Jobs"></a>My Morning Jobs</h2><p>So what am I supposed to do? In the morning, I’ll receive a form(maybe excel from Bloomberg Terminal), something looks like:</p>
@@ -280,6 +280,29 @@
 </table>
 <p>​In total, the amount of SPY we are going to buy/sell is $$1.5x - 2x - 3x - 1.4x = -4.9x$$. Because we have to buy \$x of each these 4 stocks. Our 1000 dollars this morning will be separated into $4.9 + 4 = 8.9$ parts. Therefore, we buy or sell (1/8.9 * 1000) dollars of AAPL/TSLA/MSFT/GM. And we sell (4.9/8.9 * 1000) dollars of SPY. </p>
 <p>Using TWS (Trade Workstation) API, I can find out the VWAP or mkt price of each stock, then the trading platform I build will calculate the number of each stock to be operated and do the correspond buy/sell jobs. </p>
+<h2 id="Portfolio-rebalance-amp-3-day-trading"><a href="#Portfolio-rebalance-amp-3-day-trading" class="headerlink" title="Portfolio  rebalance &amp; 3-day  trading"></a>Portfolio  rebalance &amp; 3-day  trading</h2><p>The further step is about how to apply the methods to calculate number of each stock to be traded on a regular 3-day-basis each day.</p>
+<p>Because we are going to do the trading on a three-day basis, it’s natural to think of dividing the investment for one 3-day period into three equal parts and using each part to buy/sell stocks every day.</p>
+<p>Nevertheless, there are occasions when we lose a lot of out investment on the first day and therefore, we have to do correspond adjustment on the second and third day. For example, if we have \$999 in the beginning, the investment will be divided into three \$333 for each day. </p>
+<p>Unfortunately, the first \$333 we used to buy AMZN in day 1 became only 1 dollar after the first day and before the opening of the second day. Suppose we have rebalance triggers which will be trigged say, when the fortune we have become less than 25% or more 140% of the initial investment that day, one trigger will be trigged on the second day for rebalance. </p>
+<p>The so-called rebalance is: For now, the total investment is (1 + 666) dollars, what we want is to keep the share for the first-day investment be 1/3 of the total investment. Hence, we have to re-invest 667/3 dollars using the form in day-one to calculate how many stocks(same kind as in day-one) we are going to buy/sell in the second day. </p>
+<p>After that, we will calculate the difference between the new result and the result in the first day. The result of the difference is what we should do on the second trading day. e.g.</p>
+<table>
+<thead>
+<tr>
+<th>day 1</th>
+<th>new result</th>
+<th>difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-1 AAPL</td>
+<td>-3 AAPL</td>
+<td>short 2 AAPL stock</td>
+</tr>
+</tbody>
+</table>
+<p>Of course, the investment we have for the form from the second day becomes 667/3 dollars.</p>
 </div>
 
             
