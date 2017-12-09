@@ -116,7 +116,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -183,7 +183,7 @@
 <a id="more"></a>
 <p>这篇算是个开头，至于能写多少、内容深度，主要取决于我和懒癌斗争的结果。我估摸主要还是记录下我做过的算法题。</p>
 <hr>
-<p>LeetCode大名鼎鼎的高频题2Sum很可能是大部分人AC的第一道题目，它的核心之处在于利用<code>HashMap</code>将$O(n)$时间复杂度的算法，通过对key-value pair的巧妙设置，达到每向前遍历一步，都能利用map查看之前所得结果的效果。在这里，把这类题目整理一下：</p>
+<p>LeetCode大名鼎鼎的高频题2Sum很可能是大部分人AC的第一道题目，它的核心之处在于利用<code>HashMap</code>实现$O(n)$时间复杂度的算法，通过对key-value pair的巧妙设置，达到每向前遍历一步，都能利用map查看之前所得结果的效果。在这里，把这类题目整理一下：</p>
 <h2 id="325-Maximum-Size-Subarray-Sum-Equals-k"><a href="#325-Maximum-Size-Subarray-Sum-Equals-k" class="headerlink" title="325.Maximum Size Subarray Sum Equals k"></a><a href="https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/description/" target="_blank" rel="noopener">325.Maximum Size Subarray Sum Equals k</a></h2><p>问题： 求sum=k的最长子数组的长度。</p>
 <p><code>HashMap</code> structure: <code>&lt;sum of all elements from 0 to index i, i&gt;</code></p>
 <p>Solution：若当前sum为k，更新结果max；若map中存在key为sum-k，说明之前存在子数组sum_pre，使得sum_cur - sum_pre = k，更新结果max。若map中不存在当前sum，将其添加到map中。</p>
@@ -196,7 +196,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-09T03:11:44.672Z" itemprop="dateUpdated">2017-12-08 22:11:44</time>
+    最終更新：<time datetime="2017-12-09T03:11:44.672Z" itemprop="dateUpdated">2017-12-08 22:11:44</time>
 </span><br>
 
 
@@ -345,7 +345,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
