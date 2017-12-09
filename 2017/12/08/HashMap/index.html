@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>LeetCode | 利用HashMap实现O(n)时间的算法 | 白马灰马 | No more knowledge can be extracted from my tellings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LeetCode,HashMap">
+    <meta name="description" content="一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流自拍都没有的那种。摸摸头顶，与宇宙演进截然相反的熵减趋势时刻提醒我作为码农的阶级属性。 “得写点技术博客了。”我想。">
+<meta name="keywords" content="LeetCode,HashMap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode | 利用HashMap实现O(n)时间的算法">
+<meta property="og:url" content="http://regulusxiang.github.io/2017/12/08/HashMap/index.html">
+<meta property="og:site_name" content="白马灰马">
+<meta property="og:description" content="一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流自拍都没有的那种。摸摸头顶，与宇宙演进截然相反的熵减趋势时刻提醒我作为码农的阶级属性。 “得写点技术博客了。”我想。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-09T03:11:44.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode | 利用HashMap实现O(n)时间的算法">
+<meta name="twitter:description" content="一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流自拍都没有的那种。摸摸头顶，与宇宙演进截然相反的熵减趋势时刻提醒我作为码农的阶级属性。 “得写点技术博客了。”我想。">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/poly.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">G. Xiang</h5>
+          <a href="mailto:regulus.xiang@outlook.com" title="regulus.xiang@outlook.com" class="mail">regulus.xiang@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-inbox"></i>
+                Archive
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/regulusxiang" target="_blank" >
+                <i class="icon icon-lg icon-github-alt"></i>
+                GitHub
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/LeetCode"  >
+                <i class="icon icon-lg icon-edit"></i>
+                LeetCode
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LeetCode | 利用HashMap实现O(n)时间的算法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LeetCode | 利用HashMap实现O(n)时间的算法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-09T03:11:44.000Z" itemprop="datePublished" class="page-time">
+  2017-12-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#325-Maximum-Size-Subarray-Sum-Equals-k"><span class="post-toc-number">1.</span> <span class="post-toc-text">325.Maximum Size Subarray Sum Equals k</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HashMap"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LeetCode | 利用HashMap实现O(n)时间的算法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-08 22:11:44" datetime="2017-12-09T03:11:44.000Z"  itemprop="datePublished">2017-12-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流自拍都没有的那种。摸摸头顶，与宇宙演进截然相反的熵减趋势时刻提醒我作为码农的阶级属性。</p>
+<p>“得写点技术博客了。”我想。</p>
+<a id="more"></a>
+<p>这篇算是个开头，至于能写多少、内容深度，主要取决于我和懒癌斗争的结果。我估摸主要还是记录下我做过的算法题。</p>
+<hr>
+<p>LeetCode大名鼎鼎的高频题2Sum很可能是大部分人AC的第一道题目，它的核心之处在于利用<code>HashMap</code>将$O(n)$时间复杂度的算法，通过对key-value pair的巧妙设置，达到每向前遍历一步，都能利用map查看之前所得结果的效果。在这里，把这类题目整理一下：</p>
+<h2 id="325-Maximum-Size-Subarray-Sum-Equals-k"><a href="#325-Maximum-Size-Subarray-Sum-Equals-k" class="headerlink" title="325.Maximum Size Subarray Sum Equals k"></a><a href="https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/description/" target="_blank" rel="noopener">325.Maximum Size Subarray Sum Equals k</a></h2><p>问题： 求sum=k的最长子数组的长度。</p>
+<p><code>HashMap</code> structure: <sum 0="" of="" all="" elements="" from="" to="" index="" i,="" i=""></sum></p>
+<p>Solution：若当前sum为k，更新结果max；若map中存在key为sum-k，说明之前存在子数组sum_pre，使得sum_cur - sum_pre = k，更新结果max。若map中不存在当前sum，将其添加到map中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArrayLen</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//map stores the key-value pair of &lt;sum of all elements from 0 to index i, i&gt;</span></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(sum == k) max = i+<span class="number">1</span>; <span class="comment">//return the length of current array index</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(map.containsKey(sum-k)) <span class="comment">//sum - (sum-k) = k, 减掉之前的某个sum得到k</span></span><br><span class="line">            &#123;</span><br><span class="line">                max = Math.max(max, i - map.get(sum-k));</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!map.containsKey(sum)) map.put(sum, i);  <span class="comment">//子数组有相同sum的话，取index小的存入map，这样结果的长度最长</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-12-09T03:11:44.672Z" itemprop="dateUpdated">2017-12-08 22:11:44</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://regulusxiang.github.io">
+            <img src="/img/poly.jpg" alt="G. Xiang">
+            G. Xiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HashMap/">HashMap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/08/HashMap/&title=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/08/HashMap/&title=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&source=一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://regulusxiang.github.io/2017/12/08/HashMap/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/08/HashMap/&via=http://regulusxiang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://regulusxiang.github.io/2017/12/08/HashMap/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/28/hedge/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">What we talk about when we talk about Hedging</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "n7Rij7vJAcCRTV4vRlBTiqN8-gzGzoHsz",
+            appKey: "dt3oJnWBqPcGaRcvvOlSiAth",
+            avatar: "mm",
+            placeholder: "Why so serious?",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>G. Xiang &copy; 2016 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/08/HashMap/&title=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/08/HashMap/&title=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&source=一日，$E^{6}X$和我说，“你看着越来越没有程序猿气质了”。我顿时感到警觉，翻了翻之前的Blog，尽是书评影评小说摘抄，像初三女生的QQ空间，连非主流..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://regulusxiang.github.io/2017/12/08/HashMap/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LeetCode | 利用HashMap实现O(n)时间的算法》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/08/HashMap/&via=http://regulusxiang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://regulusxiang.github.io/2017/12/08/HashMap/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://regulusxiang.github.io/2017/12/08/HashMap/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '￣へ￣';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(*/ω＼*)';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
