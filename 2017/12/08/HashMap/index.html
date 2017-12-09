@@ -116,7 +116,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -185,7 +185,7 @@
 <hr>
 <p>LeetCode大名鼎鼎的高频题2Sum很可能是大部分人AC的第一道题目，它的核心之处在于利用<code>HashMap</code>将$O(n)$时间复杂度的算法，通过对key-value pair的巧妙设置，达到每向前遍历一步，都能利用map查看之前所得结果的效果。在这里，把这类题目整理一下：</p>
 <h2 id="325-Maximum-Size-Subarray-Sum-Equals-k"><a href="#325-Maximum-Size-Subarray-Sum-Equals-k" class="headerlink" title="325.Maximum Size Subarray Sum Equals k"></a><a href="https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/description/" target="_blank" rel="noopener">325.Maximum Size Subarray Sum Equals k</a></h2><p>问题： 求sum=k的最长子数组的长度。</p>
-<p><code>HashMap</code> structure: <sum 0="" of="" all="" elements="" from="" to="" index="" i,="" i=""></sum></p>
+<p><code>HashMap</code> structure: <code>&lt;sum of all elements from 0 to index i, i&gt;</code></p>
 <p>Solution：若当前sum为k，更新结果max；若map中存在key为sum-k，说明之前存在子数组sum_pre，使得sum_cur - sum_pre = k，更新结果max。若map中不存在当前sum，将其添加到map中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArrayLen</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//map stores the key-value pair of &lt;sum of all elements from 0 to index i, i&gt;</span></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(sum == k) max = i+<span class="number">1</span>; <span class="comment">//return the length of current array index</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(map.containsKey(sum-k)) <span class="comment">//sum - (sum-k) = k, 减掉之前的某个sum得到k</span></span><br><span class="line">            &#123;</span><br><span class="line">                max = Math.max(max, i - map.get(sum-k));</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!map.containsKey(sum)) map.put(sum, i);  <span class="comment">//子数组有相同sum的话，取index小的存入map，这样结果的长度最长</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -196,7 +196,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2017-12-09T03:11:44.672Z" itemprop="dateUpdated">2017-12-08 22:11:44</time>
+    Last updated: <time datetime="2017-12-09T03:11:44.672Z" itemprop="dateUpdated">2017-12-08 22:11:44</time>
 </span><br>
 
 
@@ -345,7 +345,7 @@
 
         <p>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
