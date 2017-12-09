@@ -114,7 +114,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -187,7 +187,7 @@
     
 
         <a href="/2016/05/09/像恒星啦坍缩/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -246,7 +246,7 @@
     
 
         <a href="/2016/05/09/一封写了十二年的遗嘱/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -306,7 +306,7 @@
     
 
         <a href="/2016/05/09/无力的自我/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -354,7 +354,7 @@
     
 
         <a href="/2016/05/09/Cortana/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -400,7 +400,7 @@
     
 
         <a href="/2016/05/09/止于言说/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -446,7 +446,7 @@
     
 
         <a href="/2016/05/09/活的意思/" class="post-more waves-effect waves-button">
-            Continue reading...
+            続きを読む…
         </a>
     </div>
     
@@ -487,7 +487,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -581,6 +581,27 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
 
 
