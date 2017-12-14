@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Operating Systems | 白马灰马 | No more knowledge can be extracted from my tellings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LeetCode,Operating Systems">
+    <meta name="description" content="0. ConceptsVirtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s vi">
+<meta name="keywords" content="LeetCode,Operating Systems">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating Systems">
+<meta property="og:url" content="http://regulusxiang.github.io/2017/12/13/OS/index.html">
+<meta property="og:site_name" content="白马灰马">
+<meta property="og:description" content="0. ConceptsVirtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory). Semaphore: a variable) or">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T04:06:48.150Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Operating Systems">
+<meta name="twitter:description" content="0. ConceptsVirtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory). Semaphore: a variable) or">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/background.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/poly.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">G. Xiang</h5>
+          <a href="mailto:regulus.xiang@outlook.com" title="regulus.xiang@outlook.com" class="mail">regulus.xiang@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-inbox"></i>
+                Archive
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-user"></i>
+                About
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/regulusxiang" target="_blank" >
+                <i class="icon icon-lg icon-github-alt"></i>
+                GitHub
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/LeetCode"  >
+                <i class="icon icon-lg icon-edit"></i>
+                LeetCode
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Operating Systems</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Operating Systems</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-13T19:35:22.000Z" itemprop="datePublished" class="page-time">
+  2017-12-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">3.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">4.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">5.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">6.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">7.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-OS"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Operating Systems</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-13 14:35:22" datetime="2017-12-13T19:35:22.000Z"  itemprop="datePublished">2017-12-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="0-Concepts"><a href="#0-Concepts" class="headerlink" title="0. Concepts"></a>0. Concepts</h2><p><strong>Virtual Memory</strong>: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory).</p>
+<p><strong>Semaphore</strong>: a <a href="https://en.wikipedia.org/wiki/Variable_(programming" target="_blank" rel="noopener">variable</a>) or <a href="https://en.wikipedia.org/wiki/Abstract_data_type" target="_blank" rel="noopener">abstract data type</a> used to control access to a common resource by multiple <a href="https://en.wikipedia.org/wiki/Process_(computing" target="_blank" rel="noopener">processes</a>) in a <a href="https://en.wikipedia.org/wiki/Concurrent_computing" target="_blank" rel="noopener">concurrent</a> system</p>
+<p><strong>Deadlock</strong>: A deadlock occurs when every member of a set of processes is waiting for an event that can only be caused by a member of the set</p>
+<h2 id="1-Process-v-s-Thread"><a href="#1-Process-v-s-Thread" class="headerlink" title="1. Process v.s. Thread"></a>1. Process v.s. Thread</h2><blockquote>
+<p>Both processes and threads are independent sequences of execution. The typical difference is that threads (of the same process) run in a shared memory space, while processes run in separate memory spaces. (StackOverflow)</p>
+</blockquote>
+<p>The greatest difference is that Process has its own memory space, threads of one process can not be seen by other processes. Process A can not modify the memory space of process B by passing addresses. </p>
+<p>Process can have multiple threads. </p>
+<ul>
+<li>User level thread: efficient, does not require kernel space, low concurrent efficiency</li>
+<li>Kernel level thread: applications used kernel API to manage these thread, high concurrent efficiency</li>
+</ul>
+<h2 id="Context-Switch"><a href="#Context-Switch" class="headerlink" title="Context Switch"></a>Context Switch</h2><blockquote>
+<p>Multiprogramming requires that we protect one process from another. That is, we need to translate the <strong>virtual addresses</strong> (a virtual address is the address as written in the program) into <strong>physical addresses</strong> (a physical address is the actual memory address in the computer) such that, at any point in time, the physical address of each process are disjoint. The hardware that performs this translation is called the <strong>MMU</strong> or <strong>Memory Management Unit</strong>. </p>
+</blockquote>
+<p>When switching the context, OS needs to store the state of current process (pointers in memory space, instructions that finished), load the state of the next process and run the next process.</p>
+<h2 id="System-Call"><a href="#System-Call" class="headerlink" title="System Call"></a>System Call</h2><p>The way that programs ask for service from the OS. e.g. visit the hard drive, create new process.</p>
+<h2 id="Semaphore-Mutex"><a href="#Semaphore-Mutex" class="headerlink" title="Semaphore/Mutex"></a>Semaphore/Mutex</h2><blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank" rel="noopener">computer science</a>, a <strong>semaphore</strong> is a <a href="https://en.wikipedia.org/wiki/Variable_(programming" target="_blank" rel="noopener">variable</a>) or <a href="https://en.wikipedia.org/wiki/Abstract_data_type" target="_blank" rel="noopener">abstract data type</a> used to control access to a common resource by multiple <a href="https://en.wikipedia.org/wiki/Process_(computing" target="_blank" rel="noopener">processes</a>) in a <a href="https://en.wikipedia.org/wiki/Concurrent_computing" target="_blank" rel="noopener">concurrent</a> system such as a <a href="https://en.wikipedia.org/wiki/Computer_multitasking" target="_blank" rel="noopener">multiprogramming</a> operating system.</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loop forever</span><br><span class="line">     P</span><br><span class="line">     critical-section</span><br><span class="line">     V</span><br><span class="line">     non-critical-section</span><br></pre></td></tr></table></figure>
+<p><strong>P(s)</strong></p>
+<p>s is a semaphore</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.value = s.value - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>若s.value ≥ 0，则进程继续执行，否则（即s.value &lt; 0），则进程被阻塞，并将该进程插入到信号量s的等待队列s.queue中</p>
+<p>说明：实际上，P操作可以理解为分配资源的计数器，或是使进程处于等待状态的控制指令</p>
+<p><strong>V(s)</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.value = s.value + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Semaphore 用于控制允许多少进程/线程同时访问一个critical section. Mutex相当于只允许一个进程/线程访问的semaphore</p>
+</blockquote>
+<h2 id="Deadlock"><a href="#Deadlock" class="headerlink" title="Deadlock"></a>Deadlock</h2><p>4 Necessary conditions:</p>
+<ol>
+<li>Mutual exclusion: 一资源不侍二主, no sharing</li>
+<li>Hold and wait: 你有卧室，你想用洗手间，我在用，你得等</li>
+<li>No preemption: 江山是朕的，朕不给你，你不能抢</li>
+<li>Circular wait: Each member in the chain is waiting the resource hold by the next member of the chain</li>
+</ol>
+<h2 id="Inter-Process-Communication-IPC"><a href="#Inter-Process-Communication-IPC" class="headerlink" title="Inter-Process Communication, IPC"></a>Inter-Process Communication, IPC</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-12-14T04:06:48.150Z" itemprop="dateUpdated">2017-12-13 23:06:48</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://regulusxiang.github.io">
+            <img src="/img/poly.jpg" alt="G. Xiang">
+            G. Xiang
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Operating-Systems/">Operating Systems</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/13/OS/&title=《Operating Systems》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/13/OS/&title=《Operating Systems》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://regulusxiang.github.io/2017/12/13/OS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Operating Systems》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/13/OS/&via=http://regulusxiang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://regulusxiang.github.io/2017/12/13/OS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/08/HashMap/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">LeetCode | 利用HashMap实现O(n)时间的算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'false' == 'true',
+            appId: "n7Rij7vJAcCRTV4vRlBTiqN8-gzGzoHsz",
+            appKey: "dt3oJnWBqPcGaRcvvOlSiAth",
+            avatar: "mm",
+            placeholder: "Why so serious?",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>G. Xiang &copy; 2016 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/13/OS/&title=《Operating Systems》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/13/OS/&title=《Operating Systems》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://regulusxiang.github.io/2017/12/13/OS/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Operating Systems》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/13/OS/&via=http://regulusxiang.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://regulusxiang.github.io/2017/12/13/OS/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://regulusxiang.github.io/2017/12/13/OS/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '￣へ￣';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(*/ω＼*)';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
