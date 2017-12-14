@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="0. ConceptsVirtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory). Semaphore: a variable) or">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T04:27:00.519Z">
+<meta property="og:updated_time" content="2017-12-14T04:41:46.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Operating Systems 知识速记">
 <meta name="twitter:description" content="0. ConceptsVirtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory). Semaphore: a variable) or">
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">3.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">4.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">5.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">6.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">7.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">3.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">4.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">5.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">6.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">7.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Banker’s-Algorithm"><span class="post-toc-number">8.</span> <span class="post-toc-text">Banker’s Algorithm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Memory-Management"><span class="post-toc-number">9.</span> <span class="post-toc-text">2. Memory Management</span></a></li></ol>
         </nav>
     </aside>
     
@@ -181,6 +181,16 @@
             <h2 id="0-Concepts"><a href="#0-Concepts" class="headerlink" title="0. Concepts"></a>0. Concepts</h2><p><strong>Virtual Memory</strong>: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory).</p>
 <p><strong>Semaphore</strong>: a <a href="https://en.wikipedia.org/wiki/Variable_(programming" target="_blank" rel="noopener">variable</a>) or <a href="https://en.wikipedia.org/wiki/Abstract_data_type" target="_blank" rel="noopener">abstract data type</a> used to control access to a common resource by multiple <a href="https://en.wikipedia.org/wiki/Process_(computing" target="_blank" rel="noopener">processes</a>) in a <a href="https://en.wikipedia.org/wiki/Concurrent_computing" target="_blank" rel="noopener">concurrent</a> system</p>
 <p><strong>Deadlock</strong>: A deadlock occurs when every member of a set of processes is waiting for an event that can only be caused by a member of the set</p>
+<p><strong>MMU</strong>: Memory Management Unit, translate virtual addresses into physical addresses</p>
+<p><strong>Page</strong>: The program is logically divided into fixed size pieces called pages</p>
+<p><strong>Frame</strong>: The physical memory is similarly divided into fixed sized pieces called frames.</p>
+<p><strong>Page Table</strong>: Table stores the mapping from page to frame</p>
+<p><strong>Demand Paging</strong>: In a system that uses demand paging, the operating system copies a disk <a href="https://en.wikipedia.org/wiki/Paging" target="_blank" rel="noopener">page</a> into physical memory only if an attempt is made to access it and that page is not already in memory</p>
+<p><strong>TLB</strong>: Translation Lookaside Buffer, part of MMU, memory cache stores recent translations from virtual memory to physical memory. The index field is page number, the other fields include frame number, dirty bit, valid bit, etc.</p>
+<p><strong>PRA</strong>: Page Replacement Algorithms. </p>
+<p><strong>Resident Set</strong>: Data of process that is running which is already loaded to memory</p>
+<p><strong>Page Fault</strong>: Page which is needed is not in the resident set, OS need fetch it from virtual memory or hard drive</p>
+<p><strong>Thrashing</strong>:  OS spends too much time on solving page faults</p>
 <h2 id="1-Process-v-s-Thread"><a href="#1-Process-v-s-Thread" class="headerlink" title="1. Process v.s. Thread"></a>1. Process v.s. Thread</h2><blockquote>
 <p>Both processes and threads are independent sequences of execution. The typical difference is that threads (of the same process) run in a shared memory space, while processes run in separate memory spaces. (StackOverflow)</p>
 </blockquote>
@@ -216,14 +226,32 @@
 <li>No preemption: 江山是朕的，朕不给你，你不能抢</li>
 <li>Circular wait: Each member in the chain is waiting the resource hold by another member of the chain</li>
 </ol>
-<h2 id="Inter-Process-Communication-IPC"><a href="#Inter-Process-Communication-IPC" class="headerlink" title="Inter-Process Communication, IPC"></a>Inter-Process Communication, IPC</h2>
+<h2 id="Inter-Process-Communication-IPC"><a href="#Inter-Process-Communication-IPC" class="headerlink" title="Inter-Process Communication, IPC"></a>Inter-Process Communication, IPC</h2><ol>
+<li><p>Shared memory + Semaphore</p>
+<p>不同进程通过读写操作系统中特殊的共享内存进行数据交换，进程之间用semaphore实现同步。</p>
+</li>
+<li><p>Message passing</p>
+<p>进程在操作系统内部注册一个port，并且监测有没有数据，其他进程直接写数据到该port。该通信方式更加接近于网络通信方式。事实上，网络通信也是一种IPC，只是进程分布在不同机器上而已。</p>
+</li>
+</ol>
+<h2 id="Banker’s-Algorithm"><a href="#Banker’s-Algorithm" class="headerlink" title="Banker’s Algorithm"></a>Banker’s Algorithm</h2><ol>
+<li>If there are no processes remaining, the state is <strong>safe</strong>.</li>
+<li>Seek a process P whose maximum additional request for each resource type is less than or equal to what remains for that resource type.<ul>
+<li>If no such process can be found, then the state is <strong>not safe</strong>.</li>
+<li>If such a P can be found, the banker (manager) knows that, if it refuses all requests except those from P, then it will be able to satisfy all of P’s requests.<br><strong>Question</strong>: Why?<br><strong>Answer</strong>: Look at how P was chosen.</li>
+</ul>
+</li>
+<li>The banker now pretends that P has terminated (since the banker knows that it can guarantee this will happen). Hence the banker pretends that all of P’s currently held resources are returned. This makes the banker richer and hence perhaps a process that was not eligible to be chosen as P previously, can now be chosen.</li>
+<li>Repeat these steps.</li>
+</ol>
+<h2 id="2-Memory-Management"><a href="#2-Memory-Management" class="headerlink" title="2. Memory Management"></a>2. Memory Management</h2>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-14T04:27:00.519Z" itemprop="dateUpdated">2017-12-13 23:27:00</time>
+    Last updated: <time datetime="2017-12-14T04:41:46.303Z" itemprop="dateUpdated">2017-12-13 23:41:46</time>
 </span><br>
 
 
