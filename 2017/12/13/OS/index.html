@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="0. ConceptsProcess: Program under execution Thread: Smallest sequence of programmed instructions Virtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T23:30:38.921Z">
+<meta property="og:updated_time" content="2017-12-15T03:52:04.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Operating Systems 知识速记">
 <meta name="twitter:description" content="0. ConceptsProcess: Program under execution Thread: Smallest sequence of programmed instructions Virtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of">
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">3.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">4.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">5.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">6.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">7.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Banker’s-Algorithm"><span class="post-toc-number">8.</span> <span class="post-toc-text">Banker’s Algorithm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Interrupt"><span class="post-toc-number">9.</span> <span class="post-toc-text">Interrupt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Scheduling"><span class="post-toc-number">10.</span> <span class="post-toc-text">Scheduling</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Memory-Management"><span class="post-toc-number">11.</span> <span class="post-toc-text">2. Memory Management</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Banker’s-Algorithm"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">Banker’s Algorithm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Interrupt"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">Interrupt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Scheduling"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">Scheduling</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Memory-Management"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. Memory Management</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Page-Replacement-Algorithms"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Page Replacement Algorithms</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Belady’s-anomaly"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Belady’s anomaly</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -178,7 +178,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="0-Concepts"><a href="#0-Concepts" class="headerlink" title="0. Concepts"></a>0. Concepts</h2><p><strong>Process</strong>: Program under execution</p>
+            <h1 id="0-Concepts"><a href="#0-Concepts" class="headerlink" title="0. Concepts"></a>0. Concepts</h1><p><strong>Process</strong>: Program under execution</p>
 <p><strong>Thread</strong>: Smallest sequence of programmed instructions</p>
 <p><strong>Virtual Memory</strong>: the memory as viewed by the process. Each process believes it has a contiguous chunk of memory starting at location zero (Truman’s virtual memory).</p>
 <p><strong>Semaphore</strong>: a <a href="https://en.wikipedia.org/wiki/Variable_(programming" target="_blank" rel="noopener">variable</a>) or <a href="https://en.wikipedia.org/wiki/Abstract_data_type" target="_blank" rel="noopener">abstract data type</a> used to control access to a common resource by multiple <a href="https://en.wikipedia.org/wiki/Process_(computing" target="_blank" rel="noopener">processes</a>) in a <a href="https://en.wikipedia.org/wiki/Concurrent_computing" target="_blank" rel="noopener">concurrent</a> system</p>
@@ -195,7 +195,7 @@
 <p><strong>Thrashing</strong>:  OS spends too much time on solving page faults</p>
 <p><strong>Critical Section</strong>: a critical section is group of instructions/statements or region of code that need to be executed atomically </p>
 <p><strong>Spooling</strong>: 假脱机, a specialized form of <a href="https://en.wikipedia.org/wiki/Computer_multitasking" target="_blank" rel="noopener">multi-programming</a> for the purpose of copying data between different devices. e.g. 打印缓存</p>
-<h2 id="1-Process-v-s-Thread"><a href="#1-Process-v-s-Thread" class="headerlink" title="1. Process v.s. Thread"></a>1. Process v.s. Thread</h2><blockquote>
+<h1 id="1-Process-v-s-Thread"><a href="#1-Process-v-s-Thread" class="headerlink" title="1. Process v.s. Thread"></a>1. Process v.s. Thread</h1><blockquote>
 <p>Both processes and threads are independent sequences of execution. The typical difference is that threads (of the same process) run in a shared memory space, while processes run in separate memory spaces. (StackOverflow)</p>
 </blockquote>
 <p>The greatest difference is that Process has its own memory space, threads of one process can not be seen by other processes. Process A can not modify the memory space of process B by passing addresses. </p>
@@ -251,19 +251,25 @@
 <h2 id="Interrupt"><a href="#Interrupt" class="headerlink" title="Interrupt"></a>Interrupt</h2><p>系统调用和中断的关系就在于，当进程发出系统调用申请的时候，会产生一个软件中断。产生这个软件中断以后，系统会去对这个软中断进行处理，这个时候进程就处于核心态了。</p>
 <h2 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h2><ol>
 <li>FCFS, simple, fair, not efficient</li>
-<li>SJF, </li>
-<li>SRTF,</li>
-<li>Round Robin,</li>
-<li>​</li>
+<li>SJF, least average waiting time, not realistic</li>
+<li>SRTF, preemptive SJF, but may starve a process requires long burst</li>
+<li>Round Robin, preemptive FCFS, quantum as counter for each process, quantum too small, too much switching time; quantum too large, FCFS</li>
+<li>Priority Scheduling, starve low priority process</li>
 </ol>
-<h2 id="2-Memory-Management"><a href="#2-Memory-Management" class="headerlink" title="2. Memory Management"></a>2. Memory Management</h2>
+<h1 id="2-Memory-Management"><a href="#2-Memory-Management" class="headerlink" title="2. Memory Management"></a>2. Memory Management</h1><h2 id="Page-Replacement-Algorithms"><a href="#Page-Replacement-Algorithms" class="headerlink" title="Page Replacement Algorithms"></a>Page Replacement Algorithms</h2><ol>
+<li>FIFO</li>
+<li>Optional, pages are replaced which are not used for the longest time in the future, not realistic</li>
+<li>LRU, least recently used</li>
+</ol>
+<h2 id="Belady’s-anomaly"><a href="#Belady’s-anomaly" class="headerlink" title="Belady’s anomaly"></a>Belady’s anomaly</h2><p>Belady’s anomaly proves that it is possible to have more page faults when increasing the number of page frames while using the First in First Out (FIFO) page replacement algorithm.  For example, if we consider reference string 3, 2, 1, 0, 3, 2, 4, 3, 2, 1, 0, 4 and 3 slots, we get 9 total page faults, but if we increase slots to 4, we get 10 page faults.</p>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-14T23:30:38.921Z" itemprop="dateUpdated">2017-12-14 18:30:38</time>
+    Last updated: <time datetime="2017-12-15T03:52:04.357Z" itemprop="dateUpdated">2017-12-14 22:52:04</time>
 </span><br>
 
 
