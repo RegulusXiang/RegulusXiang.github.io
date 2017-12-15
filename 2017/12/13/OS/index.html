@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="0. ConceptsProcess: Program under execution Thread: Smallest sequence of programmed instructions Virtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T03:52:04.357Z">
+<meta property="og:updated_time" content="2017-12-15T19:19:49.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Operating Systems 知识速记">
 <meta name="twitter:description" content="0. ConceptsProcess: Program under execution Thread: Smallest sequence of programmed instructions Virtual Memory: the memory as viewed by the process. Each process believes it has a contiguous chunk of">
@@ -116,7 +116,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Banker’s-Algorithm"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">Banker’s Algorithm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Interrupt"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">Interrupt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Scheduling"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">Scheduling</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Memory-Management"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. Memory Management</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Page-Replacement-Algorithms"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Page Replacement Algorithms</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Belady’s-anomaly"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Belady’s anomaly</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-Others"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Others</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Wildcard"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Wildcard</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#0-Concepts"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Concepts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Process-v-s-Thread"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. Process v.s. Thread</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Context-Switch"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Context Switch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#System-Call"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">System Call</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore-Mutex"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Semaphore/Mutex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deadlock"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Deadlock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inter-Process-Communication-IPC"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Inter-Process Communication, IPC</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Banker’s-Algorithm"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">Banker’s Algorithm</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Interrupt"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">Interrupt</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Scheduling"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">Scheduling</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-Memory-Management"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. Memory Management</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Page-Replacement-Algorithms"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Page Replacement Algorithms</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Belady’s-anomaly"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Belady’s anomaly</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -262,13 +262,10 @@
 <blockquote>
 <p> Multiprogramming requires that we protect one process from another. That is, we need to translate the <strong>virtual addresses</strong> (a virtual address is the address as written in the program) into <strong>physical addresses</strong> (a physical address is the actual memory address in the computer) such that, at any point in time, the physical address of each process are disjoint. The hardware that performs this translation is called the <strong>MMU</strong> or <strong>Memory Management Unit</strong>. </p>
 </blockquote>
-<h1 id="4-Others"><a href="#4-Others" class="headerlink" title="4. Others"></a>4. Others</h1><ul>
-<li><strong>(INNER) JOIN</strong>: Returns records that have matching values in both tables</li>
-<li><strong>LEFT (OUTER) JOIN</strong>: Return all records from the left table, and the matched records from the right table</li>
-<li><strong>RIGHT (OUTER) JOIN</strong>: Return all records from the right table, and the matched records from the left table</li>
-<li><strong>FULL (OUTER) JOIN</strong>: Return all records when there is a match in either left or right table</li>
-</ul>
-<h2 id="Wildcard"><a href="#Wildcard" class="headerlink" title="Wildcard"></a>Wildcard</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Customers</span><br><span class="line"><span class="keyword">WHERE</span> City <span class="keyword">LIKE</span> <span class="string">'L_n_on'</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>References:</strong></p>
+<p>[1] <a href="http://wdxtub.com/interview/14520847747820.html" target="_blank" rel="noopener">http://wdxtub.com/interview/14520847747820.html</a></p>
+<p>[2] <a href="http://www.geeksforgeeks.org/operating-systems/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/operating-systems/</a></p>
 
         </div>
 
@@ -276,7 +273,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-15T03:52:04.357Z" itemprop="dateUpdated">2017-12-14 22:52:04</time>
+    最后更新时间：<time datetime="2017-12-15T19:19:49.615Z" itemprop="dateUpdated">2017-12-15 14:19:49</time>
 </span><br>
 
 
@@ -425,7 +422,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
