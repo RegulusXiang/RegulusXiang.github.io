@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="白马灰马">
 <meta property="og:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例： 1. Requirements classification问清楚需求再开始设计，常识。问题例如：  Will users of our service be able to post tweets and follow other people? Should we a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-29T03:37:00.788Z">
+<meta property="og:updated_time" content="2017-12-29T21:48:42.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="System Design 学习上手">
 <meta name="twitter:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例： 1. Requirements classification问清楚需求再开始设计，常识。问题例如：  Will users of our service be able to post tweets and follow other people? Should we a">
@@ -116,7 +116,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Requirements-classification"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Requirements classification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-System-interface-definition"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. System interface definition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Back-of-the-envelope-estimation-粗略估算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Back-of-the-envelope estimation(粗略估算)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Defining-data-model"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Defining data model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-High-level-design"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. High-level design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Detailed-design"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Detailed design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Bottlenecks"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Bottlenecks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CAP-Theorem"><span class="post-toc-number">8.</span> <span class="post-toc-text">CAP Theorem</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Requirements-classification"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Requirements classification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-System-interface-definition"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. System interface definition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Back-of-the-envelope-estimation-粗略估算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Back-of-the-envelope estimation(粗略估算)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Defining-data-model"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Defining data model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-High-level-design"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. High-level design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Detailed-design"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Detailed design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Bottlenecks"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Bottlenecks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CAP-Theorem"><span class="post-toc-number">8.</span> <span class="post-toc-text">CAP Theorem</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Key-Concepts"><span class="post-toc-number">9.</span> <span class="post-toc-text">Key Concepts</span></a></li></ol>
         </nav>
     </aside>
     
@@ -221,6 +221,37 @@
 <li>Availability: 每次请求都能获得响应的能力（不保证最新）</li>
 <li>Partitioning: 分区容错性，在C和A之间做抉择</li>
 </ul>
+<hr>
+<h2 id="Key-Concepts"><a href="#Key-Concepts" class="headerlink" title="Key Concepts"></a>Key Concepts</h2><p><strong>1. Horizontal vs Vertical Scaling</strong></p>
+<ul>
+<li>纵向扩展 means increase the resources of a specific node, e.g. add additional memory to a server</li>
+<li>横向扩展 means increase the number of nodes, e.g. add additional servers thus decreasing the load on any one server</li>
+</ul>
+<p><strong>2. Load Balancer</strong>（负载均衡器）</p>
+<p>通常在一个scalable website 的前端会放置一个load balancer, this allows a system to distribute the load evenly so that one server doesn’t crash and take down the whole system</p>
+<p><strong>3. Denormalization and NoSQL</strong></p>
+<p>Denormalization means adding redundant information into a database to speed up reads</p>
+<p><strong>4. Database Partitioning (Sharding)</strong></p>
+<p>Sharding means split the data across multiple machines while 你仍然知道哪些data在哪些机器上</p>
+<ul>
+<li>Vertical Partitioning, partitioning by feature</li>
+<li>Hash-based partitioning, using some part of the data (like an ID) to partition it. 比如有N个服务器，讲数据放在mod(key, n)号服务器上</li>
+<li>Directory-based partitioning, maintaining a look-up table for where the data can be found</li>
+</ul>
+<p><strong>5. Caching</strong></p>
+<p>缓存，类比LRU cache</p>
+<p><strong>6. Asynchronous Processing (异步处理)</strong></p>
+<p>耗时较长的slow operation最好be done asynchronously, 否则用户将会被阻塞过长时间。有时可以通过pre-process来加速。</p>
+<p><strong>7. Networking metrics</strong></p>
+<ul>
+<li>Bandwidth: the maximum amount of data that can be transferred in a unit of time</li>
+<li>Throughput: the actual amount of data that is transferred</li>
+<li>Latency: This is how long it takes data to go from one end to the other</li>
+</ul>
+<p><strong>8. Read-heavy vs. Write-heavy</strong></p>
+<p>Write-heavy: queuing up the writes (but think about the potential failure)</p>
+<p>Read-heavy: cache大法好</p>
+<hr>
 
         </div>
 
@@ -228,7 +259,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-12-29T03:37:00.788Z" itemprop="dateUpdated">2017-12-28 22:37:00</time>
+    最后更新时间：<time datetime="2017-12-29T21:48:42.461Z" itemprop="dateUpdated">2017-12-29 16:48:42</time>
 </span><br>
 
 
@@ -377,7 +408,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
