@@ -13,25 +13,25 @@
     
     
     
-    <title>System Design学习上手 | 白马灰马 | No more knowledge can be extracted from my tellings</title>
+    <title>System Design 学习上手 | 白马灰马 | No more knowledge can be extracted from my tellings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="LeetCode,系统设计,System Design">
-    <meta name="description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。">
+    <meta name="description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例： 1. Requirements classification问清楚需求再开始设计，常识。问题例如：  Will users of our service be able to post twe">
 <meta name="keywords" content="LeetCode,系统设计,System Design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="System Design学习上手">
+<meta property="og:title" content="System Design 学习上手">
 <meta property="og:url" content="http://regulusxiang.github.io/2017/12/28/SystemDesign/index.html">
 <meta property="og:site_name" content="白马灰马">
-<meta property="og:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。">
+<meta property="og:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例： 1. Requirements classification问清楚需求再开始设计，常识。问题例如：  Will users of our service be able to post tweets and follow other people? Should we a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-29T02:44:37.385Z">
+<meta property="og:updated_time" content="2017-12-29T03:37:00.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="System Design学习上手">
-<meta name="twitter:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。">
+<meta name="twitter:title" content="System Design 学习上手">
+<meta name="twitter:description" content="总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例： 1. Requirements classification问清楚需求再开始设计，常识。问题例如：  Will users of our service be able to post tweets and follow other people? Should we a">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -110,13 +110,13 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">System Design学习上手</div>
+        <div class="flex-col header-title ellipsis">System Design 学习上手</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -132,7 +132,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">System Design学习上手</h1>
+        <h1 class="title">System Design 学习上手</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-12-29T02:42:15.000Z" itemprop="datePublished" class="page-time">
@@ -152,11 +152,18 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Requirements-classification"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Requirements classification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-System-interface-definition"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. System interface definition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Back-of-the-envelope-estimation-粗略估算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Back-of-the-envelope estimation(粗略估算)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Defining-data-model"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Defining data model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-High-level-design"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. High-level design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Detailed-design"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Detailed design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Bottlenecks"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Bottlenecks</span></a></li></ol>
+        </nav>
+    </aside>
+    
 <article id="post-SystemDesign"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">System Design学习上手</h1>
+        <h1 class="post-card-title">System Design 学习上手</h1>
         <div class="post-meta">
             <time class="post-time" title="2017-12-28 21:42:15" datetime="2017-12-29T02:42:15.000Z"  itemprop="datePublished">2017-12-28</time>
 
@@ -171,7 +178,42 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。</p>
+            <p>总有一些犀利的公司试图用System Design来考察new grad的即战力，还是得准备一个。先以设计Twitter为例：</p>
+<h2 id="1-Requirements-classification"><a href="#1-Requirements-classification" class="headerlink" title="1. Requirements classification"></a>1. Requirements classification</h2><p>问清楚需求再开始设计，常识。问题例如：</p>
+<ul>
+<li>Will users of our service be able to post tweets and follow other people?</li>
+<li>Should we also design to create and display user’s timeline?</li>
+<li>Will tweets contain photos and videos?</li>
+<li>Will users be able to search tweets?</li>
+<li>Do we need to display hot trending topics?</li>
+<li>Would there be any push notification for new (or important) tweets?</li>
+</ul>
+<h2 id="2-System-interface-definition"><a href="#2-System-interface-definition" class="headerlink" title="2. System interface definition"></a>2. System interface definition</h2><p>设计API，抽象软件功能。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">postTweet(user_id, tweet_data, tweet_location, user_location, timestamp, …)</span><br><span class="line"></span><br><span class="line">generateTimeline(user_id, current_time, user_location, …)</span><br></pre></td></tr></table></figure>
+<h2 id="3-Back-of-the-envelope-estimation-粗略估算"><a href="#3-Back-of-the-envelope-estimation-粗略估算" class="headerlink" title="3. Back-of-the-envelope estimation(粗略估算)"></a>3. Back-of-the-envelope estimation(粗略估算)</h2><p>估算scale of the system, 思考scaling, load balancing, caching, partitioning, etc</p>
+<ul>
+<li>What scale is expected from the system (e.g., number of new tweets, number of tweet views, how many timeline generations per sec., etc.)?</li>
+<li>How much storage would we need? We’ll have different numbers if users can have photos and videos in their tweets.</li>
+</ul>
+<p>这一部分的估算详见<a href="http://www.1point3acres.com/bbs/thread-208829-1-1.html" target="_blank" rel="noopener">此贴</a></p>
+<h2 id="4-Defining-data-model"><a href="#4-Defining-data-model" class="headerlink" title="4. Defining data model"></a>4. Defining data model</h2><p>For Twitter, e.g.</p>
+<p><strong>User</strong>: UserID, Name, Email, DoB, CreationData, LastLogin, etc.</p>
+<p><strong>Tweet</strong>: TweetID, Content, TweetLocation, NumberOfLikes, TimeStamp, etc.</p>
+<p><strong>UserFollowos</strong>: UserdID1, UserID2</p>
+<p><strong>FavoriteTweets</strong>: UserID, TweetID, TimeStamp</p>
+<h2 id="5-High-level-design"><a href="#5-High-level-design" class="headerlink" title="5. High-level design"></a>5. High-level design</h2><p>画block diagram设计图。</p>
+<blockquote>
+<p>For Twitter, at a high level, we would need multiple application servers to serve all the read/write requests with load balancers in front of them for traffic distributions. If we’re assuming that we’ll have a lot more read traffic (as compared to write), we can decide to have separate servers for handling these scenarios. On the backend, we need an efficient database that can store all the tweets and can support a huge number of reads. We would also need a distributed file storage system to store photos and videos.</p>
+</blockquote>
+<h2 id="6-Detailed-design"><a href="#6-Detailed-design" class="headerlink" title="6. Detailed design"></a>6. Detailed design</h2><ul>
+<li>Since we’ll be storing a huge amount of data, how should we partition our data to distribute it to multiple databases? Should we try to store all the data of a user on the same database? What issue can it cause?</li>
+<li>How would we handle hot users, who tweet a lot or follow a lot of people?</li>
+<li>How much and at which layer should we introduce cache to speed things up?</li>
+</ul>
+<h2 id="7-Bottlenecks"><a href="#7-Bottlenecks" class="headerlink" title="7. Bottlenecks"></a>7. Bottlenecks</h2><ul>
+<li>Is there any single point of failure in our system? What are we doing to mitigate it?</li>
+<li>Do we’ve enough replicas of the data, so that if we lose a few servers, we can still serve our users?</li>
+</ul>
 
         </div>
 
@@ -179,7 +221,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-29T02:44:37.385Z" itemprop="dateUpdated">2017-12-28 21:44:37</time>
+    Last updated: <time datetime="2017-12-29T03:37:00.788Z" itemprop="dateUpdated">2017-12-28 22:37:00</time>
 </span><br>
 
 
@@ -208,7 +250,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design学习上手》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design 学习上手》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -218,7 +260,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design学习上手》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design 学习上手》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -228,7 +270,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《System Design学习上手》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&via=http://regulusxiang.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《System Design 学习上手》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&via=http://regulusxiang.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -328,7 +370,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
@@ -350,7 +392,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design学习上手》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design 学习上手》 — 白马灰马&pic=http://regulusxiang.github.io/img/poly.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -360,7 +402,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design学习上手》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&title=《System Design 学习上手》 — 白马灰马&source=regulus.xiang@outlook.com" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -370,7 +412,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《System Design学习上手》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&via=http://regulusxiang.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《System Design 学习上手》 — 白马灰马&url=http://regulusxiang.github.io/2017/12/28/SystemDesign/&via=http://regulusxiang.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
