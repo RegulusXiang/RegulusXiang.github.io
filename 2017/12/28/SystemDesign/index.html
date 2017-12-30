@@ -116,7 +116,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Requirements-classification"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Requirements classification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-System-interface-definition"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. System interface definition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Back-of-the-envelope-estimation-粗略估算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Back-of-the-envelope estimation(粗略估算)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Defining-data-model"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Defining data model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-High-level-design"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. High-level design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Detailed-design"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Detailed design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Bottlenecks"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Bottlenecks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CAP-Theorem"><span class="post-toc-number">8.</span> <span class="post-toc-text">CAP Theorem</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Key-Concepts"><span class="post-toc-number">9.</span> <span class="post-toc-text">Key Concepts</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Requirements-classification"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. Requirements classification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-System-interface-definition"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. System interface definition</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Back-of-the-envelope-estimation-粗略估算"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. Back-of-the-envelope estimation(粗略估算)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-Defining-data-model"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. Defining data model</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-High-level-design"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. High-level design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Detailed-design"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. Detailed design</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Bottlenecks"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. Bottlenecks</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CAP-Theorem"><span class="post-toc-number">8.</span> <span class="post-toc-text">CAP Theorem</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Key-Concepts"><span class="post-toc-number">9.</span> <span class="post-toc-text">Key Concepts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EXAMPLE"><span class="post-toc-number">10.</span> <span class="post-toc-text">EXAMPLE</span></a></li></ol>
         </nav>
     </aside>
     
@@ -252,6 +252,17 @@
 <p>Write-heavy: queuing up the writes (but think about the potential failure)</p>
 <p>Read-heavy: cache大法好</p>
 <hr>
+<h2 id="EXAMPLE"><a href="#EXAMPLE" class="headerlink" title="EXAMPLE"></a>EXAMPLE</h2><p>设计Facebook, 实现find shortest path between two people 的功能</p>
+<p>Step1: 不考虑数据规模，利用bidirectional-BFS找两人之间最短路径</p>
+<p>Step 2: Scale up. 实现以下接口，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> machine_index = getMachineIDForUser(personID);</span><br><span class="line"></span><br><span class="line"><span class="comment">//go to machine # machine_index</span></span><br><span class="line"></span><br><span class="line">Person friend = getPersonWithID(person_id);</span><br></pre></td></tr></table></figure>
+<p>首先找server中存储personID的机器ID，再从机器中找到对应的人</p>
+<p>Step 3: Optimization. </p>
+<ul>
+<li>Reduce machine jumps: If 5 of my friends live on the same machine, I should look them up all at once</li>
+<li>Start division of people and machines. While dividing people across machines, try to divide them by country, city, state, and so on</li>
+<li>…</li>
+</ul>
 
         </div>
 
@@ -259,7 +270,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-29T21:48:42.461Z" itemprop="dateUpdated">2017-12-29 16:48:42</time>
+    Last updated: <time datetime="2017-12-29T21:48:42.461Z" itemprop="dateUpdated">2017-12-29 16:48:42</time>
 </span><br>
 
 
@@ -408,7 +419,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
